@@ -9,13 +9,12 @@ h1 {
 h2 {
   margin: 0;
   text-align: center;
+  color: #939393;
 }
 h1 {
   padding: 2%;
 }
-h2 {
-  color: #939393;
-}
+
 
 
 /* header */
@@ -25,27 +24,28 @@ header {
   color: white;
   background-image: linear-gradient(to right, #fd7b46, #fe4e9b);
 }
-header h1 {
+
+header > p > span{
+   padding: 1.5% 4% 1.5% 4%;
+}
+
+.header_headline{
   text-align: left;
-  padding-left: 4.6%;
+  padding-left: 59px;
+
 }
 .summary_total {
   display: flex;
-  width: 90%;
-  margin: auto;
   justify-content: space-between;
-  padding: 1.5% 0% 1.5% 0%;
   border-bottom: 2px solid white;
   font-size: 25px;
 }
 .grand_total {
   display: flex;
-  width: 90%;
-  margin: auto;
   justify-content: space-between;
-  padding: 1.5% 0% 1.5% 0%;
   font-size: 25px;
   font-weight: bold;
+
 }
 /* end header */
 
@@ -55,6 +55,12 @@ main {
   width: 90%;
   margin: auto;
 }
+
+main > h2{
+  color: black;
+  padding: 2%;
+}
+
 main button {
   width: 44%;
   padding: 2%;
@@ -65,7 +71,7 @@ main button {
   border: none;
   background-color: white;
 }
-main button img {
+.card_image{
   max-width: 100%;
   height: auto;
   display: block;
@@ -74,16 +80,18 @@ main button img {
 .active_button {
   border: 5px solid #fe4e9a;
 }
-main p {
+.cards_button{
   text-align: center;
   margin: 1%;
 }
 
 
+
+
+
 /* main-> card information */
 .cardinfo_container {
-  width: 90%;
-  margin: auto;
+  padding: 0% 5%;
   display: flex;
   gap: 3%;
   flex-wrap: wrap;
@@ -109,7 +117,7 @@ main p {
 .cardinfo_container input {
   width: 100%;
   box-sizing: border-box;
-  padding: 33px;
+  padding: 33px 60px 33px 33px;
   height: 50px;
   border-radius: 2px;
   border: 2px solid #adadad;
@@ -120,25 +128,36 @@ main p {
   background-position: 98% 40%;
 }
 /* removing question (expiry field) */
-.expiry_data_filed {
-  background-image: none !important;
+.cardinfo_itemtwo > input {
+  background-image: none ;
 }
+
 .cardinfo_container input::placeholder {
   color: #939393;
 }
 /* main-> card information end */
 
-.buynow_button {
-  width: 20%;
+
+.primary-button {
+  padding: 0;
+  margin-top: 4%;
   border-radius: 100px;
   cursor: pointer;
   box-shadow: none;
   border: none;
   background-image: linear-gradient(to right, #fd7b46, #fe4e9b);
-}
-.buynow_button h1 {
+  display: block;
   color: white;
 }
+
+main > button{
+  margin: 2% auto; 
+}
+main > a {
+  display: block;
+}
+
+
 .need_help {
   text-align: center;
   background: linear-gradient(to right, #fd7b46, #fe4e9b);
@@ -153,6 +172,10 @@ main p {
 /* media query */
 @media only screen and (max-width: 1200px) {
 
+  .header_headline{
+
+    padding-left: 20px;
+  }
   .cardinfo_itemone {
     width: 100%;
   }

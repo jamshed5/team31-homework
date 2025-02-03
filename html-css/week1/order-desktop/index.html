@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Desktop - Order</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="header_headline">Order Summary</h1>
+        <p class="summary_total">
+            <span>Total</span>
+            <span>$333/month</span>
+        </p>
+        <p class="grand_total">
+            <span>Total</span>
+            <span>$100</span>
+        </p>
+    </header>
+    
+    <main>
+        <h2>Payment Method</h2>
+        <div class="cards_button">
+            <button class="active_button">
+                <img src="images/card_1.png" alt="" class="card_image">
+                <h2>Credit/Debit</h2>
+            </button>
+            <button>
+                <img src="images/card_2.png" alt="" class="card_image">
+                <h2>Paypal</h2>
+            </button>
+        </div>
+
+        <h2>Card Info</h2>
+        
+        <form action="" method="post" class="cardinfo_container">
+            <div class="cardinfo_itemone">
+                <label for="card_number">Card Number</label>
+                <input type="number" id="card_number" placeholder="1234 1234 1234 1234" name="card-number" required>
+            </div>
+            <div class="cardinfo_itemtwo">
+                <label for="expiry_date">Expiry Date</label>
+                <input type="text" id="expiry_date" placeholder="MM / YY" name="exp-date" required class="expiry_data_filed">
+            </div>
+            <div class="cardinfo_itemthree">
+                <label for="security_code">Security Code</label>
+                <input type="password" id="security_code" placeholder="CVV" name="sec-code" required>
+            </div>
+        </form>
+
+        <button class="primary-button"><h1>Buy Now</h1></button>    
+        <a href="#" class="need_help">Need help ?</a>
+    
+
+    </main>
+
+</body>
+</html>
