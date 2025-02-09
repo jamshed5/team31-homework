@@ -1,15 +1,15 @@
 console.log("==== Assignment 1 ====")
-let yearOfBirth=1986
-let yearFuture=2027
-let age= yearFuture- yearOfBirth
+const yearOfBirth=1986
+const yearFuture=2027
+const age= yearFuture- yearOfBirth
 console.log(`You will be ${age} years old in ${yearFuture}`)
 
 
 console.log("==== Assignment 2 ====")
-let dogYearOfBirth=2022
-let dogYearFuture=2027
+const dogYearOfBirth=2022
+const dogYearFuture=2027
 let dogYear=0
-let shouldShowResultInDogYears=true
+const shouldShowResultInDogYears=true
 
 dogYear=dogYearFuture-dogYearOfBirth
 
@@ -28,7 +28,9 @@ console.log("==== Assignment 3 ====")
 let FriendName='peter'
 if (FriendName==='peter'){
     // logic
-    let volumeInMeters=8*10*10
+    const width=8, height=10, depth=10
+    let volumeInMeters=width*height*depth
+
     let gardenSizeInM2=100
     let housePrice=2500000
     calHousePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
@@ -42,9 +44,9 @@ if (FriendName==='peter'){
 }
 else if(FriendName==='julia'){
     // logic
-    let volumeInMeters=5*11*8
-    let gardenSizeInM2=70
-    let housePrice=1000000
+    const volumeInMeters=5*11*8
+    const gardenSizeInM2=70
+    const housePrice=1000000
     calHousePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
     if(calHousePrice<housePrice){
         console.log(`julia paying too mush e.g ${calHousePrice} < ${housePrice}`)
@@ -57,22 +59,16 @@ else if(FriendName==='julia'){
 
 
 console.log("==== Assignment 4 ====")
-let firstWords=[
+const firstWords=[
     "Easy", "Awesome", "Innovative", 
     "Corporate", "NextGen", "Ultra", 
     "Hyper", "Smart", "Cloud", 
     "Quantum"]
-let secondWords=[
+const secondWords=[
     "Tech", "Solutions", "Enterprises", 
     "Hub", "Industries", "Labs", 
     "Networks", "Systems", "Ventures", 
     "AI"]
 
-let randomFirstWord = firstWords[Math.floor(Math.random() * 10)]
-// console.log(randomFirstWord)
-
-let randomSecondWords = secondWords[Math.floor(Math.random() * 10)]
-// console.log(randomSecondWords)
-
-let startupName=randomFirstWord+" "+randomSecondWords
+let startupName=firstWords[Math.floor(Math.random() * 10)]+" "+secondWords[Math.floor(Math.random() * 10)]
 console.log(`The startup: "${startupName}" contains ${startupName.length} characters`)
