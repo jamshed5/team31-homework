@@ -1,10 +1,9 @@
 console.log("=== Assignment 1 ===")
-function getFullname(firstname,surname, useFormalName, isFemale){
+function getFullname(firstname, surname, useFormalName, isFemale){
     // check empty
     if (!firstname && !surname){   
         return `please provide complete name`
     }
-    let title=""
     if (useFormalName){
         if(isFemale){
             return "Lady"+" "+firstname+" "+surname
@@ -58,7 +57,7 @@ console.log("=== Assignment 3 ===")
 const class07Students = [];
 function addStudentToClass(studentName) {
     //added queen (special case)
-    if(studentName==="Queen"){
+    if(studentName.toLowerCase()==="Queen"){
         class07Students.push(studentName) 
     }
     // class should have 6 students
