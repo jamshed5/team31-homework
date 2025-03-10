@@ -1,15 +1,9 @@
 console.log("===== Assignment (Highest and Lowest) =====")
 
-let intListofArray=[]
-
 let high_and_low=(stringData)=>{
    listOfNumber=stringData.split(' ')
-   for(value of listOfNumber){
-      intListofArray.push(Number(value))  
-   }
-   //  use ... spread operator 
-   let max=Math.max(...intListofArray)
-   let min=Math.min(...intListofArray)
+   let max=Math.max(...listOfNumber)
+   let min=Math.min(...listOfNumber)
    return `"${max} ${min}"`
 }
 

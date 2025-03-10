@@ -1,21 +1,15 @@
-/* Note: 
---------------
-following approach gives confusion 
-let cmdList=command.split(' ') 
-for multiple cases, if i go with indexes 
-cmdList[3] for + ,cmdList[4] for todo, cmdList[3] for name? 
-e.g given cases below 
-what is 3 + 3 
-Add fishing to my todo
-What is my name?'
+// console.log("===== Assignment (Voice Assistant App ) =====")
 
-*/
-console.log("===== Assignment (Voice Assistant App ) =====")
 let info = [];
 
 // main getReply 
 let getReply = (command) => {
+    
     let reply = "";
+
+    // regex for +,-,/,*
+    const pattern = /\d+\s*[\+\-\*\/]\s*\d+/g;
+
     let cmd_list = command.split(" ");
     let nameIndex = cmd_list.length - 1;
     let name = cmd_list[nameIndex];
@@ -39,7 +33,7 @@ let getReply = (command) => {
             }
 
         }
-        // add todo 
+        // add 
         else if (command.startsWith("Add"))
         {
             if (info.length === 0) {
@@ -53,7 +47,7 @@ let getReply = (command) => {
             }
 
         } 
-        // remove todo
+        // remove
         else if (command.startsWith("Remove"))
         {
             if (info.length === 0) {
@@ -71,7 +65,7 @@ let getReply = (command) => {
             }
 
         } 
-        // remove todo
+        // todo?
         else if (command.endsWith("todo?"))
             {
                 if (info.length === 0) {
@@ -96,6 +90,7 @@ let getReply = (command) => {
                 }
     
             }
+        // today?
         else if (command.endsWith("today?"))
             {
                 if (info.length === 0) {
@@ -109,45 +104,46 @@ let getReply = (command) => {
                     reply= `Date: ${day} of ${monthName} ${year}`
                 }
             }
-        else if (command.includes(" + "))
+        else if (command.match(pattern))
             {
                 if (info.length === 0) {
                     reply = `No object exist`;
                 } else {
-                    // call plus from last object
-                    let command_list=command.split(" ")
-                    let num1=command_list[2]
-                    let num2=command_list[4]
-                    let lastObject = info[info.length - 1];
-                    let sum=lastObject.additionFunc(parseInt(num1), parseInt(num2))
-                    reply= `Sum: ${sum}`
+                    const matche = command.match(pattern);
+                    const expression = matche[0].split(' ').join('');
+                    let result=0
+                    if(expression.includes("+"))
+                        {
+                            result=eval(expression)
+                            reply= `Addition: ${result}`
+                        }
+                    if(expression.includes("-"))
+                        {
+                            result=eval(expression)
+                            reply= `Subtraction: ${result}`
+                        }
+                    if(expression.includes("*"))
+                        {
+                            result=eval(expression)
+                            reply= `Multiplication: ${result}`
+                        }
+                    if(expression.includes("/"))
+                        {
+                            result=eval(expression)
+                            reply= `Division: ${result}`
+                        }
                 }
                 
             }
-        else if (command.includes(" * "))
-            {   
-                if (info.length === 0) {
-                    reply = `No object exist`;
-                } else {
-                    // call multiplication from last object
-                    let command_list=command.split(" ")
-                    let num1=command_list[2]
-                    let num2=command_list[4]
-                    let lastObject = info[info.length - 1];
-                    let multiplication=lastObject.multiplicationFunc(parseInt(num1), parseInt(num2))
-                    reply= `multiplication: ${multiplication}`
-                }
-               
-            }
+
         else 
         {
             let infObject = {
                 name: name,
                 todo: [],
                 date: new Date(),
-                additionFunc: (a,b)=>{return a+b},
-                multiplicationFunc:(a,b)=>{return a*b},
             };
+
             info.push(infObject);
             reply = `Nice to meet you, ${name}`;
         }
@@ -159,6 +155,7 @@ let questionsCaseOne=(duration)=>{
     console.log(`-----[Timer set for ${duration} second]-----`);
     console.log(getReply("Hello my name is Benjamin"));
     console.log(getReply("Hello my name is Benjamin"));
+    console.log(getReply("Hello my name Albert"))
     console.log(getReply("Hello my name is Ali"));
     console.log(getReply("Hello my name is Ali"));
     console.log(getReply("What is my name?"));
@@ -168,8 +165,10 @@ let questionsCaseOne=(duration)=>{
     console.log(getReply("Remove fishing from my todo"));
     console.log(getReply("What is on my todo?"));
     console.log(getReply("What day is it today?"))
-    console.log(getReply("what is 3 + 3"))
-    console.log(getReply("what is 4 * 12"))
+    console.log(getReply("What is 3 + 3 "))
+    console.log(getReply("What is 5 - 2 "))
+    console.log(getReply("What is 4 * 12"))
+    console.log(getReply("What is 8 / 4"))
 
     // extra test (correct)
     console.log(getReply("Hello my name is Waseem"));
@@ -178,8 +177,8 @@ let questionsCaseOne=(duration)=>{
 let questionsCaseTwo=(duration)=>{
     console.log(`-----[Timer set for ${duration} second]-----`);
     console.log(getReply("What is my name?"));
-    console.log(getReply("what is 3 + 3"))
-    console.log(getReply("what is 4 * 12"))
+    console.log(getReply("What is 3 + 3"))
+    console.log(getReply("What is 4 * 12"))
 }
 function setTimer(duration) {
     
